@@ -33,8 +33,8 @@ function GetRutaName() {
 		var rutaRelativa = rutaAbsoluta.substring( posicionUltimaBarra + "/".length , rutaAbsoluta.length );
         return rutaRelativa;
 }		
-/**
 
+/**
     const mobileMenu = () => {
         mostrar.classList.toggle('active');
       };
@@ -44,42 +44,10 @@ function GetRutaName() {
 
 
 
-
-if(RutaName==='matrizdafo'){
-//lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'Todos']]
-
-//with this for I can put a number on the id so i can change it and dont initialize again the datatable
-for (let i = 1; i <= 4; i++) {
-    let TableBasicx = '#basic-datatables'+[i];
-$(document).ready(function() {
-    $(TableBasicx).DataTable({
-        lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'Todos']],
-        "ordering": false,        
-        language: {
-            search: "Buscar:",
-
-            paginate:{previous:"Anterior", next:"Siguiente" },
-
-            lengthMenu: "Ver _MENU_ registros",
-
-            info: "Mostrando _START_-_END_ de _TOTAL_ registros",
-
-            zeroRecords: "No hay registros encontrados",
-
-            infoEmpty: "",
-
-            infoFiltered:"(Filtrado de _MAX_ registros)",
-        }
-        ,
-    });
-});
-}
-}
-
-else{
     $(document).ready(function() {
         $('#basic-datatables').DataTable({   
             lengthMenu: [[10, 25, 50, -1], [10, 25, 50, 'Todos']], 
+            scrollX:        true,
             "ordering": false,             
             language: {
                 search: "Buscar:",
@@ -103,100 +71,8 @@ else{
         });   
     
     })
-}
 
 
-//Here I check what check from amenazas is clicked  --jossep11 (jp)
-AmenazaCheck.forEach(function (valor, indice, item1) {  
-
-const Amenazaclicked = () => {
-let ParrafoNoSeleccion = document.querySelector("#NoSeleccion");
-let TableFAmenaza = document.querySelector("#FAmenaza");
-let EditTableFAmenaza = document.querySelector("#EditFAmenaza");
-let AmenazaCheckIndice = document.querySelector(`.Amenazacheck${indice}`);
-
-    // If a Amenazacheck is selected that means it's gonna the added the text to the modal
-    if(valor.checked){   
-        
-        var rows = document.getElementsByTagName("table")[3].rows;
-        var row = rows[indice+1];
-        
-        var cell1 = row.cells[0]; //this define what cells Im using 
-        var cell2 = row.cells[1];
-    
-        //Here I add the text selected to the modal
-        TableFAmenaza.innerHTML+=`<div class="Amenazacheck${indice} Amenazacheck_"><span class="SpanAmenaza">${cell1.textContent}: </span> ${cell2.textContent}</div>`;
-        EditTableFAmenaza.innerHTML+=`<div class="Amenazacheck${indice} Amenazacheck_"><span class="SpanAmenaza">${cell1.textContent}: </span> ${cell2.textContent}</div>`;
-
-    // If Exist the class "Amenazacheck_" and "#Noseleccion" it'll remove the class
-    if(document.querySelector(`.Amenazacheck_`) && document.querySelector(`#NoSeleccion`) ) {
-
-            let ParrafoNoSeleccion = document.querySelector("#NoSeleccion");
-            ParrafoNoSeleccion.remove();
-    }
-
-    }
-    else{  
-    // If a Amenazacheck is unselected that means the text from the modal is gonna the removed
-        let AmenazaCheckIndice = document.querySelector(`.Amenazacheck${indice}`);
-        AmenazaCheckIndice.remove();
-
-        // if the class 'Amenazacheck_' and the id'#NoSeleccion' does not exist that means a div with id 'NoSeleccion' is gonna be created
-        if (!(document.querySelector(`.Amenazacheck_`)) && !(document.querySelector(`#NoSeleccion`))){
-            TableFAmenaza.innerHTML=`<div id="NoSeleccion"><p style="text-align: center;">No ha hecho alguna selección aun</p></div>`
-        
-        }
-    }
-  };
-  //listener of the click
- valor.addEventListener('click', Amenazaclicked);
-});
-
-
-FortalezaCheck.forEach(function (valor, indice, item1) {  
-
-    const Fortalezaclicked = () => {
-    let NoSeleccion_FA_Fortaleza = document.querySelector("#NoSeleccion_FA_Fortaleza");
-    let TableFAFortaleza = document.querySelector("#FaFortaleza");
-    let EditTableFAFortaleza = document.querySelector("#EditFaFortaleza");
-    let FortalezaCheckIndice = document.querySelector(`.Fortalezacheck${indice}`);
-    
-        // If a this is selected that means it's gonna the added the text to the modal
-        if(valor.checked){   
-            
-            var rows = document.getElementsByTagName("table")[2].rows;
-            var row = rows[indice+1];
-            
-            var cell1 = row.cells[0]; //this define what cells Im using 
-            var cell2 = row.cells[1];
-        
-            //Here I add the text selected to the modal
-            TableFAFortaleza.innerHTML+=`<div class="Fortalezacheck${indice} Fortalezacheck_"><span class="SpanAmenaza">${cell1.textContent}: </span> ${cell2.textContent}</div>`;
-            EditTableFAFortaleza.innerHTML+=`<div class="Fortalezacheck${indice} Fortalezacheck_"><span class="SpanAmenaza">${cell1.textContent}: </span> ${cell2.textContent}</div>`;
-    
-        // If Exist the class "Fortalezacheck" and "#Noseleccion" will remove the class
-        if(document.querySelector(`.Fortalezacheck_`) && document.querySelector(`#NoSeleccion_FA_Fortaleza`) ) {
-    
-                let NoSeleccion_FA_Fortaleza = document.querySelector("#NoSeleccion_FA_Fortaleza");
-                NoSeleccion_FA_Fortaleza.remove();
-        }
-    
-        }
-        else{  
-        // If a Amenazacheck is unselected that means the text from the modal is gonna the removed
-            let FortalezaCheckIndice = document.querySelector(`.Fortalezacheck${indice}`);
-            FortalezaCheckIndice.remove();
-    
-            // if the class 'FortalezaCheck' and the id'#NoSeleccion' does not exist that means a div with id 'NoSeleccion' is gonna be created
-            if (!(document.querySelector(`.Fortalezacheck_`)) && !(document.querySelector(`#NoSeleccion_FA_Fortaleza`))){
-                TableFAFortaleza.innerHTML=`<div id="NoSeleccion_FA_Fortaleza"><p style="text-align: center;">No ha hecho alguna selección aun</p></div>`
-            
-            }
-        }
-      };
-      //listener of the click
-     valor.addEventListener('click', Fortalezaclicked);
-    });
 
 function IndexMatrizDAFO() {
     let DebilidadesIndex = document.querySelectorAll(".IndexFaDebilidades");
@@ -222,3 +98,17 @@ function IndexMatrizDAFO() {
 
 }
 IndexMatrizDAFO();
+
+
+collapseDatosR1 = document.querySelector('#collapseDatosR1');
+
+/**
+document.addEventListener("DOMContentLoaded", function(){
+    
+    setTimeout(
+        function() {
+            collapseDatosR1.classList.remove("show")   
+        }, 
+        100);
+    });
+ */

@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="{{asset('js/core/jquery.3.2.1.min.js')}}"></script>
     
-   
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+   <meta name="csrf-token" content="{{ csrf_token() }}">
   
     
 
@@ -87,7 +86,7 @@
                                         <div class="user-box">
                                             <div class="avatar-lg"><img src="../assets/img/profile.jpg" alt="image profile" class="avatar-img rounded"></div>
                                             <div class="u-text">
-                                                <h4>Hizrian</h4>
+                                                <h4>Hizrianss testingaa</h4>
                                                 <p class="text-muted">hello@example.com</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
                                             </div>
                                         </div>
@@ -155,7 +154,7 @@
                         <li class="nav-item active">
                             <a class="text-align-center" href="" >
                                 <i class="fas fa-home"></i>
-                            <p class="ProcesoAnalitico">Proceso Analitico <br> Organizacional</p>
+                            <p class="ProcesoAnalitico">Plan Operativo Anual</p>
                             </a>
                        
                         </li>
@@ -171,55 +170,13 @@
                         {{-- @role('S_Admin|viewer') --}}
                                                   
                     <li class="nav-item ">
-                        <a href="/debilidades">
-                            <i class="fas fa-minus-circle"></i>
-                            <p>Debilidades</p>
+                        <a href="/proyecto1">
+                            <i class="fas fa-graduation-cap"></i>
+                            <p>Proyecto</p>
                             <span class="caret"></span>
                         </a>
 
                     </li>
-
-             
-                    <li class="nav-item">
-                        <a href="/oportunidades">
-                            <i class="fas fa-magic"></i>
-                            <p>Oportunidades</p>
-                            <span class="caret"></span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="/fortaleza">
-                            <i class="fas fa-dumbbell"></i>
-                            <p>Fortalezas</p>
-                            <span class="caret"></span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="/amenazas">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <p>Amenazas</p>
-                            <span class="caret"></span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#sidebarLayouts">
-                            <i class="fas fa-envelope"></i>
-                            <p>Bandeja de entrada</p>
-                            <span class="caret"></span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="/matrizdafo">
-                            <i class="far fa-chart-bar"></i>
-                            <p>MatrizDAFO</p>
-                            <span class="caret"></span>
-                        </a>
-                    </li>
-
 
                         {{-- @endrole --}}
 

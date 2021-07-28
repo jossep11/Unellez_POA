@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\POA;
+use App\Http\Controllers\Datos_Responsables_UserController;
+use App\Http\Controllers\Proyecto1Controller;
+use App\Http\Controllers\ResumenM_I_P_EPostGrado_InstitutoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('poa', POA::class);
+Route::resource('proyecto', Proyecto1Controller::class);
+Route::resource('ResponsablePro', Datos_Responsables_UserController::class);
+Route::resource('ResumenMatriculaPostGrado', ResumenM_I_P_EPostGrado_InstitutoController::class);
+
+
 
 
 Route::get('/', function () {

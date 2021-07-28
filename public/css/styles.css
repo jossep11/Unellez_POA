@@ -1,3 +1,5 @@
+
+
 *:before,
 *:after {
     box-sizing: inherit;
@@ -6,6 +8,21 @@
 .card {
     /*----margin from top----*/
     margin-top: 2rem;
+}
+
+i{
+    margin-right: .3rem;
+}
+
+h1{
+    font-size: 24px;
+}
+h2{
+    font-size: 22px;
+}
+
+h3{
+    font-size: 20px;
 }
 
 /*----button and label division----*/
@@ -21,14 +38,16 @@
 
 /*----button "add" fetures etc   ----*/
 .barra a {
+   
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     text-decoration: none;
     background-color: #28a745;
     padding: 0 1.8rem;
     border-radius: 1.4rem;
     color: white;
+    align-items: center;
+    text-align: center;
+    
    
 }
 
@@ -140,4 +159,40 @@ column on Fa can grow without any problem ----*/
 
 #FaFortaleza div{
     margin-bottom: .4rem;
+}
+
+.accordion{
+    margin: 0 1.4rem 0 1.4rem;
+
+}
+
+a{
+    font-size:16px;
+    font-weight:bold;
+}
+
+
+.table-responsive{
+    margin-top: 1.7rem;
+
+}
+#basic-datatables_wrapper{
+    margin:0;
+    padding: 0;
+}
+
+.radio-inline{
+   margin-right: .4rem;   
+}
+
+.radio_side{
+    display: flex;
+    
+}
+
+tbody td {
+    text-align: center;
+}
+thead th{
+    text-align: center;
 }

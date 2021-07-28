@@ -1,6 +1,5 @@
 
-    <p>Edit Me</p>
-    <div class="card">
+    <div class="card ">
         
         <div class="card-header collapsed card_amenaza_collapse" id="Resumen_2" data-toggle="collapse" data-target="#collapseResumen2" aria-expanded="false" aria-controls="collapseResumen2">
             <div class="span-icon">
@@ -13,7 +12,7 @@
         </div>
 
 
-        <div id="collapseResumen2" class="collapse" aria-labelledby="Resumen_2" data-parent="#accordion">
+        <div id="collapseResumen2" class="collapse show" aria-labelledby="Resumen_2" data-parent="#accordion">
             <div class="card-body">
     
                 {{-- Header inside of the collapse --}}
@@ -21,7 +20,7 @@
                     <div class="barra">
                     <h1 id="" class="IdentificadorIndex">Tabla de Datos</h1> 
                     <!-- Button trigger modal -->
-                    <a href="# " class="btn_agregar_estrategia" data-toggle="modal" data-target="#modalInsertResumenPostGrado"> <i class="fas fa-plus"></i> Añadir nuevo</a>
+                    <a href="# " class="btn_agregar_estrategia disabled"  data-toggle="modal" data-target="#modalInsertResumenPostGrado"> <i class="fas fa-plus"></i> Añadir nuevo</a>
                     
                     </div>
                 </div>
@@ -83,7 +82,7 @@
             </div>
 
             <div class="table-responsive">
-                <table id="basic-datatables" class="display table table-striped table-hover dataTable nowrap" style="width: 100%">
+                <table id="basic-datatables3" class="display table table-striped table-hover dataTable nowrap" style="width: 100%">
                     <thead>
                       
                         <tr>

@@ -240,7 +240,19 @@
     <script src="{{asset('js/validation.js')}}"></script>   
     <script src="{{asset('js/Jp.js')}}"></script>   
 
+<script>
+       
+    $(window).on("load", function(){
 
+        $(".loader-center").fadeOut("slow");
+        $(".displaynone").fadeIn("slow", function() {
+            $(this).removeClass("displaynone");
+        });
+
+
+    })
+
+</script>
 </body>
 
 </html>

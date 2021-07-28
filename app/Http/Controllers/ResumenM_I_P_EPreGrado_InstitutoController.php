@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ResumenMatriculaIngresoPreGrado;
 use Illuminate\Http\Request;
 
 class ResumenM_I_P_EPreGrado_InstitutoController extends Controller
@@ -34,7 +35,13 @@ class ResumenM_I_P_EPreGrado_InstitutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $ResumenMatriculaPreGrado  = new ResumenMatriculaIngresoPreGrado();
+        $ResumenMatriculaPreGrado->Nombre_Carrera=$request->get('Nombre_CarreraResumenPreGrado');
+        $ResumenMatriculaPreGrado->N_Ingresos=$request->get('Cantidad_N_Ingreso_ResumenPreGrado');
+        $ResumenMatriculaPreGrado->C_Prosecucion=$request->get('CantidadProsecucion_ResumenPreGrado');
+        $ResumenMatriculaPreGrado->C_Egresados=$request->get('CantidadEgresados_ResumenPreGrado');
+        $ResumenMatriculaPreGrado->save();
+        return redirect('/proyecto');
     }
 
     /**
@@ -68,7 +75,13 @@ class ResumenM_I_P_EPreGrado_InstitutoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $ResumenMatriculaPreGrado = ResumenMatriculaIngresoPreGrado::find($id);
+        $ResumenMatriculaPreGrado->Nombre_Carrera=$request->get('editNombre_CarreraResumenPreGrado');
+        $ResumenMatriculaPreGrado->N_Ingresos=$request->get('editCantidad_N_Ingreso_ResumenPreGrado');
+        $ResumenMatriculaPreGrado->C_Prosecucion=$request->get('editCantidadProsecucion_ResumenPreGrado');
+        $ResumenMatriculaPreGrado->C_Egresados=$request->get('editCantidadEgresados_ResumenPreGrado');
+        $ResumenMatriculaPreGrado->save();
+        return redirect('/proyecto');
     }
 
     /**
@@ -79,6 +92,8 @@ class ResumenM_I_P_EPreGrado_InstitutoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ResumenMatriculaPreGrado = ResumenMatriculaIngresoPreGrado::find($id);
+        $ResumenMatriculaPreGrado ->delete();
+        return redirect('/proyecto');
     }
 }

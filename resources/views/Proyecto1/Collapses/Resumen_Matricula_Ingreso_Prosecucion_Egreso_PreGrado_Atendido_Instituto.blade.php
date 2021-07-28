@@ -1,8 +1,6 @@
-
-    <p>Edit me</p>
-    <div class="card">
+    <div class="card ">
         
-        <div class="card-header collapsed card_amenaza_collapse" id="headinamenazaone" data-toggle="collapse" data-target="#collapseDatosR1" aria-expanded="false" aria-controls="collapseDatosR1">
+        <div class="card-header collapsed card_amenaza_collapse" id="headinResumenMIPregrado" data-toggle="collapse" data-target="#collapseheadinResumenMIPregrado" aria-expanded="false" aria-controls="collapseheadinResumenMIPregrado">
             <div class="span-icon">
                 <i class="fas fa-pen-square"></i>
             </div>
@@ -13,54 +11,54 @@
         </div>
 
 
-        <div id="collapseDatosR1" class="collapse" aria-labelledby="headinamenazaone" data-parent="#accordion">
+        <div id="collapseheadinResumenMIPregrado" class="collapse show" aria-labelledby="headinResumenMIPregrado" data-parent="#accordion">
             <div class="card-body">
     
                 {{-- Header inside of the collapse --}}
                 <div class="Header_InsideCollapse">
                     <div class="barra">
-                    <h1 id="" class="IdentificadorIndex">Datos del Nuevo Responsable</h1> 
+                    <h1 id="" class="IdentificadorIndex">Tabla de Datos</h1> 
                     <!-- Button trigger modal -->
-                    <a href="# " class="btn_agregar_estrategia" data-toggle="modal" data-target="#modalInsertDatosResponsable1"> <i class="fas fa-plus"></i> Añadir nuevo</a>
+                    <a href="# " class="btn_agregar_estrategia disabled" data-toggle="modal" data-target="#modalInsertResumenMIPregrado"> <i class="fas fa-plus"></i> Añadir nuevo</a>
                     
                     </div>
                 </div>
          
             <!-- Modal data insertion  -->
-            <div class="modal fade" id="modalInsertDatosResponsable1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal fade" id="modalInsertResumenMIPregrado" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Nuevo Responsable</h5>
+                            <h5 class="modal-title" id="exampleModalLongTitle">Añadir Nuevo</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
                         <div class="modal-body">
                     
-                            <form class="añadirAmenaza" method="POST">
+                            <form class="añadirResumenPreGrado1" action="{{route("ResumenMatriculaPreGrado.store")}}" method="POST">
                                 @csrf
                               
-                                <p>Code here</p>
+
                                 <div class="form-group col-md-12">
                                     <label>Nombre de la Carrera</label>
-                                    <input type="text" class="form-control"  name="" placeholder="Ej: Arquitectura"  maxlength="30" required>
+                                    <input type="text" class="form-control"  name="Nombre_CarreraResumenPreGrado" placeholder="Ej: Arquitectura"  maxlength="30" required>
                                 </div>
 
                                 <div class="form-group col-md-12">
                                     <label for="Apellidos">Cantidad de Nuevos Ingresos</label>
-                                    <input type="text" class="form-control" name="" placeholder="Cantidad Númerica" maxlength="10" required>
+                                    <input type="text" class="form-control" name="Cantidad_N_Ingreso_ResumenPreGrado" placeholder="Cantidad Númerica" maxlength="10" required pattern="\d*" title="Campo Numerico">
                                 </div>
 
                                 <div class="form-group col-md-12">
                                     <label for="inputPassword4">Cantidad en Prosecución</label>
-                                    <input type="text"  class="form-control" name="" required placeholder="Cantidad Númerica" maxlength="12" >
+                                    <input type="text"  class="form-control" name="CantidadProsecucion_ResumenPreGrado" required placeholder="Cantidad Númerica" maxlength="12" required pattern="\d*" title="Campo Numerico" >
 
                                 </div>
                 
                                 <div class="form-group col-md-12">
                                     <label>Cantidad de Egresados</label>
-                                    <input type="text" class="form-control" name="" placeholder="Cantidad Númerica" maxlength="10" required>
+                                    <input type="text" class="form-control" name="CantidadEgresados_ResumenPreGrado" placeholder="Cantidad Númerica" maxlength="10" required  pattern="\d*" title="Campo Numerico">
                                 </div>
                                 
 
@@ -79,19 +77,15 @@
 
             <div class="table-responsive">
              
-                <table id="basic-datatables" class="display table table-striped table-hover dataTable nowrap" style="width: 100%">
+                <table id="basic-datatables2" class="display table table-striped table-hover dataTable nowrap" style="width: 100%">
                     <thead>
                         {{-- insertion of items --}}
                         <tr>
                             
-                            <th>Responsable</th>
-                            
-                            <th>Nombres</th>
-                            <th>Apellidos</th>
-                            <th>Cédula/Pasaporte</th>
-                            <th>Cargo</th>
-                            <th class="td_correo">Correo</th>
-                            <th>Teléfono</th>
+                            <th>Nombre de la Carrera</th>
+                            <th>Cantidad N. Ingresos</th>
+                            <th>Cantidad Prosecución</</th>
+                            <th>Cantidad Egresados</</th>
                             <th class="thresponsive">Acciones</th>
                         </tr>
                     </thead>
@@ -99,22 +93,19 @@
                     {{--database data subtraction --}}
                     <tbody>
                     {{-- Data extraction from database --}}
-                       {{-- 
-                        @foreach($amenazas as $amenaza) --}}
+                     
+                        @foreach($RMIngresoPregrado as $itemPreGrado1) 
                         <tr>
-                            <td></td>
-
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{$itemPreGrado1->Nombre_Carrera}}</td>
+                            <td>{{$itemPreGrado1->N_Ingresos}}</td>
+                            <td>{{$itemPreGrado1->C_Prosecucion}}</td>
+                            <td>{{$itemPreGrado1->C_Egresados}}</td>
+                     
 
                             <td>
-                                <form class="eliminar_Amenaza"  method="POST">
+                                <form class="eliminar_ResumenPregrado1" action="{{route("ResumenMatriculaPreGrado.destroy",  $itemPreGrado1->id)}}" method="POST">
                             	<div class="form-button-action">    
-                                    <a href="#" class="btn btn-link btn-primary" title="Editar" data-toggle="modal"  data-target="#editAmenaza"><i class="fa fa-edit"></i></a>
+                                    <a href="#" class="btn btn-link btn-primary" title="Editar" data-toggle="modal"  data-target="#edit_ResumenPregrado1_{{$itemPreGrado1->id}}"><i class="fa fa-edit"></i></a>
                                     @csrf
                                     @method('DELETE')
                                 <button class="btn btn-link btn-danger" title="Eliminar" type="submit" >
@@ -128,7 +119,7 @@
 
             <!-- Modal data insertion  -->
             {{-- to pass it the item that's gonna be changed have to send $amenaza-> --}}
-            <div class="modal fade" id="editAmenaza" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal fade" id="edit_ResumenPregrado1_{{$itemPreGrado1->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -140,12 +131,30 @@
                     <div class="modal-body">
                         {{-- with amenaza.update I indicate where it's gonna be the change Jp--}}
                         {{-- $amenaza is the reference the item that it's gonna be changed Jp--}}            
-                        <form class="AmenazaCambios" method="POST">
+                        <form class="ResumenPreGradoCambios1" action="{{route("ResumenMatriculaPreGrado.update", $itemPreGrado1->id)}}" method="POST">
                             {{ csrf_field() }} {{   method_field('PUT')   }}
 
-                           
-                      
+                            <div class="form-group col-md-12">
+                                <label>Nombre de la Carrera</label>
+                                <input type="text" class="form-control"  name="editNombre_CarreraResumenPreGrado" placeholder="Ej: Arquitectura"  maxlength="30" required value="{{$itemPreGrado1->Nombre_Carrera}}">
+                            </div>
 
+                            <div class="form-group col-md-12">
+                                <label for="Apellidos">Cantidad de Nuevos Ingresos</label>
+                                <input type="text" class="form-control" name="editCantidad_N_Ingreso_ResumenPreGrado" placeholder="Cantidad Númerica" maxlength="10" required pattern="\d*" title="Campo Numerico" value="{{$itemPreGrado1->N_Ingresos}}">
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label for="inputPassword4">Cantidad en Prosecución</label>
+                                <input type="text"  class="form-control" name="editCantidadProsecucion_ResumenPreGrado" required placeholder="Cantidad Númerica" maxlength="12" required pattern="\d*" title="Campo Numerico"  value="{{$itemPreGrado1->C_Prosecucion}}">
+
+                            </div>
+            
+                            <div class="form-group col-md-12">
+                                <label>Cantidad de Egresados</label>
+                                <input type="text" class="form-control" name="editCantidadEgresados_ResumenPreGrado" placeholder="Cantidad Númerica" maxlength="10" required  pattern="\d*" title="Campo Numerico" value="{{$itemPreGrado1->C_Egresados}}">
+                            </div>
+                           
                             <div class="modal-footer">
                                 <button type="submit" class="btn btn-info">Guardar Cambios</button>
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
@@ -157,10 +166,10 @@
                 </div>
             </div>
                         </tr>
-                        {{--
+                      
                         
                         @endforeach
- comment --}}
+
                     </tbody>
                 </table>
       
@@ -177,7 +186,7 @@
 
 
 //añadido
-    $('.añadirAmenaza').on('submit', function(e) {
+    $('.añadirResumenPreGrado1').on('submit', function(e) {
         e.preventDefault();
                 swal({
                     title: "Excelente!",
@@ -195,12 +204,12 @@
                     }
                 }).then((redir)=>
                 {
-                        window.location.replace("/matriz_analisis_admin"); 
+                      this.submit();
                 });
 });
 
 //edit
-$('.AmenazaCambios').submit(function(e){
+$('.ResumenPreGradoCambios1').submit(function(e){
         e.preventDefault();
         swal({
             title: '¿Está seguro que desea realizar estos cambios?',
@@ -238,7 +247,7 @@ $('.AmenazaCambios').submit(function(e){
     });
 
 //eliminar 
-$('.eliminar_Amenaza').submit(function(e){
+$('.eliminar_ResumenPregrado1').submit(function(e){
         e.preventDefault();
         swal({
             title: '¿Está seguro que desea borrar este registro?',

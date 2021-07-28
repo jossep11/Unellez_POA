@@ -6,8 +6,13 @@
 
 @section('contenido')
 
+<div class="loader-center">
+    <div class="loader loader-primary loader-lg"></div>
+</div>
+
 <div class="col-md-12">
     <div class="card">
+    
         <div class="card-header">
             <div class="barra">
             <h1 id="" class="IdentificadorIndex">Formación de estudiantes en Pregrado y Postgrado o estudios avanzados</h1>    
@@ -18,8 +23,7 @@
             </div>
         </div>
       
-        <div class="accordion accordion-secondary">
-           
+        <div class="accordion accordion-secondary displaynone">    
             @include('Proyecto1.Collapses.Datos_Responsables')
             @include('Proyecto1.Collapses.Resumen_Matricula_Ingreso_Prosecucion_Egreso_PreGrado_Atendido_Instituto')
             @include('Proyecto1.Collapses.Resumen_Matricula_Ingreso_Prosecucion_Egreso_PostGrado_Atendido_Instituto')

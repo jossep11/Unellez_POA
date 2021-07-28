@@ -45,9 +45,12 @@ function GetRutaName() {
 
 
     $(document).ready(function() {
-        $('#basic-datatables').DataTable({   
-            lengthMenu: [[10, 25, 50, -1], [10, 25, 50, 'Todos']], 
-            scrollX:        true,
+
+    for (let i = 1; i <= 3; i++) {
+    let TableBasicx = '#basic-datatables'+[i];
+        $(TableBasicx).DataTable({   
+            lengthMenu: [[5, 10, 25, -1], [5, 10, 25, 'Todos']], 
+                scrollX:true,
             "ordering": false,             
             language: {
                 search: "Buscar:",
@@ -69,8 +72,8 @@ function GetRutaName() {
         
     
         });   
-    
-    })
+    }
+})
 
 
 
@@ -101,14 +104,23 @@ IndexMatrizDAFO();
 
 
 collapseDatosR1 = document.querySelector('#collapseDatosR1');
+collapseheadinResumenMIPregrado = document.querySelector('#collapseheadinResumenMIPregrado');
+collapseResumen2 = document.querySelector('#collapseResumen2');
 
-/**
+disabled =  document.querySelectorAll('.disabled');
+
+
 document.addEventListener("DOMContentLoaded", function(){
     
     setTimeout(
         function() {
-            collapseDatosR1.classList.remove("show")   
+            collapseDatosR1.classList.remove("show");
+            collapseResumen2.classList.remove("show");
+            collapseheadinResumenMIPregrado.classList.remove("show");
+            disabled.forEach(element => {
+                element.classList.remove("disabled");
+            });
+            
         }, 
         100);
     });
- */

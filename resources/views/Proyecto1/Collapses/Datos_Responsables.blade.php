@@ -1,5 +1,5 @@
 
-    <div class="card">
+    <div class="card ">
         
         <div class="card-header collapsed card_amenaza_collapse" id="headinamenazaone" data-toggle="collapse" data-target="#collapseDatosR1" aria-expanded="false" aria-controls="collapseDatosR1">
             <div class="span-icon">
@@ -18,9 +18,9 @@
                 {{-- Header inside of the collapse --}}
                 <div class="Header_InsideCollapse">
                     <div class="barra">
-                    <h1 id="" class="IdentificadorIndex">Datos del Nuevo Responsable</h1> 
+                    <h1 id="" class="IdentificadorIndex">Datos de Responsables</h1> 
                     <!-- Button trigger modal -->
-                    <a href="# " class="btn_agregar_estrategia" data-toggle="modal" data-target="#modalInsertDatosResponsable1"> <i class="fas fa-plus"></i> Añadir nuevo</a>
+                    <a href="# " class="btn_agregar_estrategia disabled" data-toggle="modal" data-target="#modalInsertDatosResponsable1"> <i class="fas fa-plus"></i> Añadir nuevo</a>
                     
                     </div>
                 </div>
@@ -114,7 +114,7 @@
 
             <div class="table-responsive">
              
-                <table id="basic-datatables" class="display table table-striped table-hover dataTable nowrap" style="width: 100%">
+                <table id="basic-datatables1" class="display table table-striped table-hover dataTable nowrap" style="width: 100%">
                     <thead>
                         {{-- insertion of items --}}
                         <tr>

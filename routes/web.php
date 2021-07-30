@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Datos_Responsables_UserController;
+use App\Http\Controllers\ObjetivoGeneralProyecto;
 use App\Http\Controllers\Proyecto1Controller;
 use App\Http\Controllers\ResumenM_I_P_EPostGrado_InstitutoController;
 use App\Http\Controllers\ResumenM_I_P_EPreGrado_InstitutoController;
@@ -21,6 +22,8 @@ Route::resource('proyecto', Proyecto1Controller::class);
 Route::resource('ResponsablePro', Datos_Responsables_UserController::class);
 Route::resource('ResumenMatriculaPostGrado', ResumenM_I_P_EPostGrado_InstitutoController::class);
 Route::resource('ResumenMatriculaPreGrado', ResumenM_I_P_EPreGrado_InstitutoController::class);
+Route::resource('ObjetivoGeneral', ObjetivoGeneralProyecto::class);
+
 
 
 

@@ -42,16 +42,20 @@ function GetRutaName() {
       menu.addEventListener('click', mobileMenu);
 */
 
-
-
-    $(document).ready(function() {
-
+window.addEventListener("load",function(){
+    setTimeout(
+        function() {
+$(document).ready(function() {
     for (let i = 1; i <= 3; i++) {
     let TableBasicx = '#basic-datatables'+[i];
         $(TableBasicx).DataTable({   
             lengthMenu: [[5, 10, 25, -1], [5, 10, 25, 'Todos']], 
                 scrollX:true,
-            "ordering": false,             
+            "ordering": false,  
+            "columnDefs": [
+                {"className": "dt-center", "targets": "_all"}
+            ],
+
             language: {
                 search: "Buscar:",
 
@@ -69,12 +73,13 @@ function GetRutaName() {
                
             },
             
-        
-    
         });   
+        
     }
+    })
+}, 
+    100);
 })
-
 
 
 function IndexMatrizDAFO() {
@@ -109,18 +114,20 @@ collapseResumen2 = document.querySelector('#collapseResumen2');
 
 disabled =  document.querySelectorAll('.disabled');
 
+window.addEventListener("load",function(){
 
-document.addEventListener("DOMContentLoaded", function(){
     
     setTimeout(
         function() {
-            collapseDatosR1.classList.remove("show");
-            collapseResumen2.classList.remove("show");
-            collapseheadinResumenMIPregrado.classList.remove("show");
-            disabled.forEach(element => {
-                element.classList.remove("disabled");
-            });
+collapseDatosR1.classList.remove("show");
+collapseResumen2.classList.remove("show");
+collapseheadinResumenMIPregrado.classList.remove("show");
+disabled.forEach(element => {
+    element.classList.remove("disabled");
+});
             
         }, 
-        100);
-    });
+        500);
+   
+
+});

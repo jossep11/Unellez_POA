@@ -15,7 +15,7 @@ class CreateObjetivoGeneralProyectosTable extends Migration
     {
         Schema::create('objetivo_general_proyectos', function (Blueprint $table) {
             $table->id();
-            $table->string('ObjetivoProyecto1');
+            $table->longText('ObjetivoProyecto1');
             $table->timestamps();
         });
     }

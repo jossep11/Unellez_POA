@@ -52,7 +52,7 @@
 
                                 <div class="form-group col-md-12">
                                     <label for="inputPassword4">Cantidad en Prosecución</label>
-                                    <input type="text"  class="form-control" name="CantidadProsecucion_ResumenPreGrado" required placeholder="Cantidad Númerica" maxlength="12" required pattern="\d*" title="Campo Numerico" >
+                                    <input type="text"  class="form-control" name="CantidadProsecucion_ResumenPreGrado" required placeholder="Cantidad Númerica" maxlength="10" required pattern="\d*" title="Campo Numerico" >
 
                                 </div>
                 
@@ -146,7 +146,7 @@
 
                             <div class="form-group col-md-12">
                                 <label for="inputPassword4">Cantidad en Prosecución</label>
-                                <input type="text"  class="form-control" name="editCantidadProsecucion_ResumenPreGrado" required placeholder="Cantidad Númerica" maxlength="12" required pattern="\d*" title="Campo Numerico"  value="{{$itemPreGrado1->C_Prosecucion}}">
+                                <input type="text"  class="form-control" name="editCantidadProsecucion_ResumenPreGrado" required placeholder="Cantidad Númerica" maxlength="10" required pattern="\d*" title="Campo Numerico"  value="{{$itemPreGrado1->C_Prosecucion}}">
 
                             </div>
             
@@ -211,39 +211,24 @@
 //edit
 $('.ResumenPreGradoCambios1').submit(function(e){
         e.preventDefault();
-        swal({
-            title: '¿Está seguro que desea realizar estos cambios?',
-            text: "¡No pódras revertir esta acción!",
-            type: 'warning',
-            buttons:{
+        swal({ 
+            title: "Excelente!",
+            text: "La información se ha actualizado de forma correcta!",
+            icon: "success",
+            buttons: {
                 confirm: {
-                    text : 'Sí, Borrar',
-                    className : 'btn btn-info'
-                },
-                cancel: {
+                    text: "Ok",
+                    value: true,
                     visible: true,
-                    text : 'No, cancelar!',
-                    className: 'btn btn-danger'
+                    className: "btn btn-success",
+                    closeModal: true
+                
                 }
             }
-            
-        }).then((willDelete) => {
-            if (willDelete) {
-                swal("La información se ha actualizado de forma correcta!", {
-                    icon: "success",
-                    buttons : {
-                        confirm : {
-                            visible: true,
-                            className: 'btn btn-success'
-                        }
-                    }
-                });
+        }).then((redir)=>
+        {
             this.submit();
-            } else {
-                //nothing happes
-            }
         });
-
     });
 
 //eliminar 
@@ -285,4 +270,3 @@ $('.eliminar_ResumenPregrado1').submit(function(e){
     });
 
 </script>
-

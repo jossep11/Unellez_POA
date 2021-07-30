@@ -84,7 +84,7 @@ class Datos_Responsables_UserController extends Controller
         $Datos_Responsable->Responsables_Proyecto=$request->get('DatosResponsable');
         $Datos_Responsable->Nombres=$request->get('Nombres_DatosResponsable');
         $Datos_Responsable->Apellidos=$request->get('Apellidos_DatosResponsable');
-        $Datos_Responsable->DocumentoIdentidad=$request->get('DocumentoID_Responsable');
+        $Datos_Responsable->DocumentoIdentidad=$request->get('editDocumentoID_Responsable');
         $Datos_Responsable->Cedula_Pasaporte=$request->get('Cedula_Pasaporte');
         $Datos_Responsable->Cargo=$request->get('Cargo_Responsable');
         $Datos_Responsable->Correo=$request->get('CorreoElectronico_Responsable');

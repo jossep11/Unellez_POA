@@ -42,29 +42,29 @@
                               
                                 <div class="form-group col-md-12">
                                     <label>Nombre del Postgrado</label>
-                                    <input type="text" class="form-control"  name="Nombre_CarreraPostgrado" placeholder="Ej: Informática Avanzada"  maxlength="30" required>
+                                    <input type="text" class="form-control"  name="Nombre_CarreraPostgrado" placeholder="Ej: Informática Avanzada"  maxlength="30" required pattern="[A-Za-z\s]*">
                                 </div>
 
                                 <div class="form-group col-md-12">
                                     <label for="Apellidos">Tipo de Postgrado</label>
-                                    <input type="text" class="form-control" name="Tipo_Postgrado" placeholder="Ej: Maestría" maxlength="15" required>
+                                    <input type="text" class="form-control" name="Tipo_Postgrado" placeholder="Ej: Maestría" maxlength="10" required title="Campo Textual" pattern="[A-Za-z\s]*">
                                 </div>
 
                                 <div class="form-group col-md-12">
                                     <label for="inputPassword4">Cantidad N. Ingresos</label>
-                                    <input type="text"  class="form-control" name="Cantidad_NuevoIngresoPostgrado" required placeholder="Cantidad Númerica" maxlength="12" >
+                                    <input type="text"  class="form-control" name="Cantidad_NuevoIngresoPostgrado" required placeholder="Cantidad Númerica" maxlength="10"  pattern="\d*" title="Campo Numerico" >
 
                                 </div>
 
                                 <div class="form-group col-md-12">
                                     <label for="inputPassword4">Cantidad Prosecución</label>
-                                    <input type="text"  class="form-control" name="Cantidad_ProsecucionPostgrado" required placeholder="Cantidad Númerica" maxlength="12" >
+                                    <input type="text"  class="form-control" name="Cantidad_ProsecucionPostgrado" required placeholder="Cantidad Númerica" maxlength="10" pattern="\d*" title="Campo Numerico" >
 
                                 </div>
                 
                                 <div class="form-group col-md-12">
                                     <label>Cantidad de Egresados</label>
-                                    <input type="text" class="form-control" name="Cantidad_EgresadosPostgrado" placeholder="Cantidad Númerica" maxlength="10" required>
+                                    <input type="text" class="form-control" name="Cantidad_EgresadosPostgrado" placeholder="Cantidad Númerica" maxlength="10" required pattern="\d*" title="Campo Numerico">
                                 </div>
                                 
 
@@ -146,24 +146,24 @@
 
                             <div class="form-group col-md-12">
                                 <label for="Apellidos">Tipo de Postgrado</label>
-                                <input type="text" class="form-control" name="editTipo_Postgrado" placeholder="Ej: Maestría" maxlength="15" required value="{{$item1P->TipoPostgrado}}">
+                                <input type="text" class="form-control" name="editTipo_Postgrado" placeholder="Ej: Maestría" maxlength="15" required value="{{$item1P->TipoPostgrado}}" title="Campo Textual" pattern="[A-Za-z\s]*">
                             </div>
 
                             <div class="form-group col-md-12">
                                 <label for="inputPassword4">Cantidad N. Ingresos</label>
-                                <input type="text"  class="form-control" name="editCantidad_NuevoIngresoPostgrado" required placeholder="Cantidad Númerica" maxlength="12"  value="{{$item1P->N_IngresosP}}">
+                                <input type="text"  class="form-control" name="editCantidad_NuevoIngresoPostgrado" required placeholder="Cantidad Númerica" maxlength="10"  value="{{$item1P->N_IngresosP}}"  pattern="\d*" title="Campo Numerico">
 
                             </div>
 
                             <div class="form-group col-md-12">
                                 <label for="inputPassword4">Cantidad Prosecución</label>
-                                <input type="text"  class="form-control" name="editCantidad_ProsecucionPostgrado" required placeholder="Cantidad Númerica" maxlength="12"  value="{{$item1P->C_ProsecucionP}}">
+                                <input type="text"  class="form-control" name="editCantidad_ProsecucionPostgrado" required placeholder="Cantidad Númerica" maxlength="10"  value="{{$item1P->C_ProsecucionP}}" pattern="\d*" title="Campo Numerico">
 
                             </div>
             
                             <div class="form-group col-md-12">
                                 <label>Cantidad de Egresados</label>
-                                <input type="text" class="form-control" name="editCantidad_EgresadosPostgrado" placeholder="Cantidad Númerica" maxlength="10" required value="{{$item1P->C_EgresadosP}}">
+                                <input type="text" class="form-control" name="editCantidad_EgresadosPostgrado" placeholder="Cantidad Númerica" maxlength="10" required value="{{$item1P->C_EgresadosP}}" pattern="\d*" title="Campo Numerico">
                             </div>
                                           
 
@@ -223,39 +223,24 @@
 //edit
 $('.ResumenPostgrado1Cambios').submit(function(e){
         e.preventDefault();
-        swal({
-            title: '¿Está seguro que desea realizar estos cambios?',
-            text: "¡No pódras revertir esta acción!",
-            type: 'warning',
-            buttons:{
+        swal({ 
+            title: "Excelente!",
+            text: "La información se ha actualizado de forma correcta!",
+            icon: "success",
+            buttons: {
                 confirm: {
-                    text : 'Sí, Borrar',
-                    className : 'btn btn-info'
-                },
-                cancel: {
+                    text: "Ok",
+                    value: true,
                     visible: true,
-                    text : 'No, cancelar!',
-                    className: 'btn btn-danger'
+                    className: "btn btn-success",
+                    closeModal: true
+                
                 }
             }
-            
-        }).then((willDelete) => {
-            if (willDelete) {
-                swal("La información se ha actualizado de forma correcta!", {
-                    icon: "success",
-                    buttons : {
-                        confirm : {
-                            visible: true,
-                            className: 'btn btn-success'
-                        }
-                    }
-                });
+        }).then((redir)=>
+        {
             this.submit();
-            } else {
-                //nothing happes
-            }
         });
-
     });
 
 //eliminar 

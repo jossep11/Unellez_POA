@@ -190,13 +190,6 @@ a{
     
 }
 
-tbody td {
-    text-align: center;
-}
-thead th{
-    text-align: center;
-}
-
 .disabled {
         pointer-events: none;
 
@@ -222,4 +215,72 @@ thead th{
     align-items: center;
     background-color: #ffffff;
 
+}
+
+ tbody td {
+    text-align: center;
+}
+.dt-center {
+    text-align: center;
+}
+
+.objetivogeneral{
+    color: #575962 ;
+
+        
+}
+
+.textareaobjetivGeneral{
+    text-align: justify;
+    min-width: 90%;
+    margin: 0 auto;
+    height: 7.6rem;
+    max-height: 7.6rem;
+    min-height: 7.6rem;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+    border:solid 1px #575962;
+    border-radius: 25px;
+    font-size: 15px;
+    resize: none;  
+}
+
+.alineacionv_{
+    vertical-align: middle;
+}
+
+
+.objetivoselementos{
+display: flex;
+align-items:center ;
+margin-bottom: 1rem;
+}
+
+
+.guarda_objetivoGeneral
+{
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
+    padding: 0;
+    margin-right:.3rem ;
+   
+}
+
+.iconosguardar{
+    margin-left: 1rem;
+}
+
+.iconosguardar .fa-pen-square{
+    color: rgb(95, 178, 255);
+    font-size: 1.3rem;
+    padding: 0;
+}
+
+.iconosguardar .fa-save{
+    color: #6861CE;
+    font-size: 1.3rem;
+    padding: 0;
 }

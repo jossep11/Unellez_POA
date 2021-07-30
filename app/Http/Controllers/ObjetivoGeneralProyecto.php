@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ObjetivoGeneralProyecto as ModelsObjetivoGeneralProyecto;
 use Illuminate\Http\Request;
 
 class ObjetivoGeneralProyecto extends Controller
@@ -33,8 +34,25 @@ class ObjetivoGeneralProyecto extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {      
+        
+        $ObjetivoGeneral  =new ModelsObjetivoGeneralProyecto();
+        $ObjetivoGeneral->ObjetivoProyecto1=$request->get('ObjetivoGeneral');
+        $ObjetivoGeneral->save();
+
+        $ObjetivoGeneral  = ModelsObjetivoGeneralProyecto::all();
+        
+//$cuenta = count($ObjetivoGeneral);
+//      foreach ($ObjetivoGeneral as $key=> $objetivo) {
+         // echo $objetivo['id'];
+
+//            if ($cuenta === ($key+1)) {
+//                echo "last";
+//        }
+//    }
+
+        return redirect('/proyecto');
+
     }
 
     /**

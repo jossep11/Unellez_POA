@@ -78,7 +78,7 @@ $(document).ready(function() {
     }
     })
 }, 
-    100);
+    1000);
 })
 
 
@@ -127,7 +127,7 @@ disabled.forEach(element => {
 });
             
         }, 
-        500);
+        1100);
    
 
 });

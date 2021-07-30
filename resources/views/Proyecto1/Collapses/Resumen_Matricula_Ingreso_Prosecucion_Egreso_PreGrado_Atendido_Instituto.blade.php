@@ -19,8 +19,9 @@
                     <div class="barra">
                     <h1 id="" class="IdentificadorIndex">Tabla de Datos</h1> 
                     <!-- Button trigger modal -->
+                    @role('user')
                     <a href="# " class="btn_agregar_estrategia disabled" data-toggle="modal" data-target="#modalInsertResumenMIPregrado"> <i class="fas fa-plus"></i> Añadir nuevo</a>
-                    
+                    @endrole
                     </div>
                 </div>
          
@@ -86,7 +87,9 @@
                             <th>Cantidad N. Ingresos</th>
                             <th>Cantidad Prosecución</</th>
                             <th>Cantidad Egresados</</th>
+                            @role('user')
                             <th class="thresponsive">Acciones</th>
+                            @endrole
                         </tr>
                     </thead>
     
@@ -101,7 +104,7 @@
                             <td>{{$itemPreGrado1->C_Prosecucion}}</td>
                             <td>{{$itemPreGrado1->C_Egresados}}</td>
                      
-
+                            @role('user')
                             <td>
                                 <form class="eliminar_ResumenPregrado1" action="{{route("ResumenMatriculaPreGrado.destroy",  $itemPreGrado1->id)}}" method="POST">
                             	<div class="form-button-action">    
@@ -116,6 +119,7 @@
                                 </form>
                 
                             </td>
+                            @endrole
 
             <!-- Modal data insertion  -->
             {{-- to pass it the item that's gonna be changed have to send $amenaza-> --}}

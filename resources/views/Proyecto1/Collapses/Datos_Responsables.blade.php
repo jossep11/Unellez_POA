@@ -21,7 +21,7 @@
 
                 <div class="Header_InsideCollapse">
             
-            <form action="{{route("ObjetivoGeneral.store")}}" method="POST">
+            <form class="EnviandoObjetivoGeneral" action="{{route("ObjetivoGeneral.store")}}" method="POST">
                 @csrf
             
                 <div class="objetivoselementos">
@@ -29,11 +29,13 @@
                 <div class="objetivoselementosh2">
                     <h2 class="objetivogeneral"> Objetivo General del Proyecto</h2>
                 </div>
+@role('user')
 
                 <div class="iconosguardar">
                     <button type="button" id="editarObjetivoGeneral" class="btn guarda_objetivoGeneral"><i class="fas fa-pen-square "></i></button>
                     <button type="submit" id="GuardarObjetivoGeneral" class="btn guarda_objetivoGeneral" disabled><i class="fas fa-save"></i></button>
                 </div>   
+@endrole
                 </div>
 
  @php ( $cuenta=count($ObjGeneralProy))
@@ -54,8 +56,9 @@
                     <div class="barra">
                     <h1 id="" class="IdentificadorIndex">Datos de Responsables</h1> 
                     <!-- Button trigger modal -->
+                    @role('user')
                     <a href="# " class="btn_agregar_estrategia disabled" data-toggle="modal" data-target="#modalInsertDatosResponsable1"> <i class="fas fa-plus"></i> Añadir nuevo</a>
-                    
+                    @endrole
                     </div>
                 </div>
          
@@ -165,7 +168,9 @@
                             <th>Cargo</th>
                             <th class="td_correo">Correo</th>
                             <th>Teléfono</th>
+                            @role('user')
                             <th class="thresponsive">Acciones</th>
+                            @endrole
                         </tr>
                     </thead>
     
@@ -183,21 +188,25 @@
                             <td>{{$Responsable->Cargo}}</td>
                             <td>{{$Responsable->Correo}}</td>
                             <td>{{$Responsable->Telefono}}</td>
-
+                            @role('user')
                             <td>
                                 <form class="eliminar_DatosResponsable" action="{{route("ResponsablePro.destroy", $Responsable->id)}}"  method="POST">
-                            	<div class="form-button-action">    
+                            	<div class="form-button-action">
+                                    
                                     <a href="#" class="btn btn-link btn-primary" title="Editar" data-toggle="modal"  data-target="#editDatos_Responsable{{$Responsable->id}}"><i class="fa fa-edit"></i></a>
+                                
                                     @csrf
                                     @method('DELETE')
+                               
                                 <button class="btn btn-link btn-danger" title="Eliminar" type="submit" >
                                     <i class="fa fa-times"></i>
                                 </button>
+                            
                                 
                                 </div>
                                 </form>
                 
-                            </td>
+                            </td>    @endrole
 
             <!-- Modal data Edit  -->
             {{-- to pass it the item that's gonna be changed have to send $amenaza-> --}}
@@ -304,6 +313,29 @@
 
 
 //añadido
+$('.EnviandoObjetivoGeneral').on('submit', function(e) {
+    e.preventDefault();
+                swal({
+                    title: "Excelente!",
+                    text: "La información se ha actualizado de forma correcta!",
+                    icon: "success",
+                    buttons: {
+                        confirm: {
+                            text: "Ok",
+                            value: true,
+                            visible: true,
+                            className: "btn btn-success",
+                            closeModal: true
+                           
+                        }
+                    }
+                }).then((redir)=>
+                {
+                       this.submit();
+                });
+
+});
+
     $('.añadirDatos_Responsable').on('submit', function(e) {
         e.preventDefault();
                 swal({

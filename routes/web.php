@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\Datos_Responsables_UserController;
+use App\Http\Controllers\login_poa;
 use App\Http\Controllers\ObjetivoGeneralProyecto;
 use App\Http\Controllers\Proyecto1Controller;
 use App\Http\Controllers\ResumenM_I_P_EPostGrado_InstitutoController;
 use App\Http\Controllers\ResumenM_I_P_EPreGrado_InstitutoController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,14 +20,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('proyecto', Proyecto1Controller::class);
+Route::resource('proyecto', Proyecto1Controller::class)->middleware('auth');
 Route::resource('ResponsablePro', Datos_Responsables_UserController::class);
 Route::resource('ResumenMatriculaPostGrado', ResumenM_I_P_EPostGrado_InstitutoController::class);
 Route::resource('ResumenMatriculaPreGrado', ResumenM_I_P_EPreGrado_InstitutoController::class);
 Route::resource('ObjetivoGeneral', ObjetivoGeneralProyecto::class);
 
-
-
+Route::resource('poa', login_poa::class)->middleware('guest');
 
 
 Route::get('/', function () {

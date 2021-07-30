@@ -45,7 +45,8 @@
             <!-- Logo Header -->
             <div class="logo-header" data-background-color="blue">
 
-                <a href="index.html" class="logo">
+                <a href="/proyecto"class="logo poa">
+                    POA
                     {{-- 
                     <img src="{{asset('img/logo.svg')}}" alt="navbar brand" class="navbar-brand">
                      --}}
@@ -71,14 +72,11 @@
                 <div class="container-fluid">
                  
                     <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
-                    
-                
-                 
-                 
+                                     
                         <li class="nav-item dropdown hidden-caret">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                                 <div class="avatar-sm">
-                                    {{-- 
+                                    <i class="fas fa-caret-down logout"></i>                                    {{-- 
                                     <img src="../assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle"> --}}
                                 </div>
                             </a>
@@ -88,10 +86,11 @@
                                         <div class="user-box">
                                             {{-- 
                                             <div class="avatar-lg"><img src="../assets/img/profile.jpg" alt="image profile" class="avatar-img rounded"></div>
-                                             --}}
+                                             --}}<i class="fa fa-user" ></i>
+
                                             <div class="u-text">
-                                                <h4>Hizrianss testingaa</h4>
-                                                <p class="text-muted">hello@example.com</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+                                                <h4>{{$user = auth()->user()->name}}</h4>
+                                                <p class="text-muted">{{$user = auth()->user()->email}}</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
                                             </div>
                                         </div>
                                     </li>
@@ -119,6 +118,8 @@
                 <div class="sidebar-content">
                     <div class="user">
                         <div class="avatar-sm float-left mr-2">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+
                             {{-- 
                             
                             <img src="../assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
@@ -128,7 +129,7 @@
                         <div class="info">
                             <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
                                 <span>
-                                    Hizrian
+                                    {{$user = auth()->user()->name}}
                                     {{--The next line show the user's name conected--}}
                                     {{-- <span class="user-level">{{$user = auth()->user()->name}}</span>--}}
                                 <span class="caret"></span>

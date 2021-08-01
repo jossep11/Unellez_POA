@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DatosResponsablesProyecto;
+use App\Models\ObjetivoGeneralProyecto;
+use App\Models\ResumenMatriculaIngresoPostGrado;
+use App\Models\ResumenMatriculaIngresoPreGrado;
 use Illuminate\Http\Request;
 
-class POA extends Controller
+class Proyecto1Controller extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +17,14 @@ class POA extends Controller
      */
     public function index()
     {
-        return view('layout');
+        $DResponsable=DatosResponsablesProyecto::All();
+        $RMIngresoPregrado=ResumenMatriculaIngresoPreGrado::All();
+        $RMIngresoPostgrado=ResumenMatriculaIngresoPostGrado::All();
+        $ObjGeneralProy=ObjetivoGeneralProyecto::All();
+        return view('Proyecto1.POA_Proyecto1')->with('DResponsable', $DResponsable)
+        ->with('RMIngresoPregrado', $RMIngresoPregrado)
+        ->with('RMIngresoPostgrado', $RMIngresoPostgrado)
+        ->with('ObjGeneralProy', $ObjGeneralProy);
     }
 
     /**

@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="{{asset('js/core/jquery.3.2.1.min.js')}}"></script>
     
-   
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+   <meta name="csrf-token" content="{{ csrf_token() }}">
   
     
 
@@ -32,7 +31,6 @@
 
     @yield('css')
     <link rel="stylesheet" href="{{asset ('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{asset ('css/atlantis.min.css') }}">
     <link rel="stylesheet" href="{{asset ('css/atlantis.css') }}">
     <link rel="stylesheet" href="{{asset ('css/styles.css') }}">
    
@@ -47,8 +45,11 @@
             <!-- Logo Header -->
             <div class="logo-header" data-background-color="blue">
 
-                <a href="index.html" class="logo">
+                <a href="/proyecto"class="logo poa">
+                    POA
+                    {{-- 
                     <img src="{{asset('img/logo.svg')}}" alt="navbar brand" class="navbar-brand">
+                     --}}
                 </a>
                 <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon">
@@ -71,24 +72,25 @@
                 <div class="container-fluid">
                  
                     <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
-                    
-                
-                 
-                 
+                                     
                         <li class="nav-item dropdown hidden-caret">
                             <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                                 <div class="avatar-sm">
-                                    <img src="../assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+                                    <i class="fas fa-caret-down logout"></i>                                    {{-- 
+                                    <img src="../assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle"> --}}
                                 </div>
                             </a>
                             <ul class="dropdown-menu dropdown-user animated fadeIn">
                                 <div class="dropdown-user-scroll scrollbar-outer">
                                     <li>
                                         <div class="user-box">
+                                            {{-- 
                                             <div class="avatar-lg"><img src="../assets/img/profile.jpg" alt="image profile" class="avatar-img rounded"></div>
+                                             --}}<i class="fa fa-user" ></i>
+
                                             <div class="u-text">
-                                                <h4>Hizrian</h4>
-                                                <p class="text-muted">hello@example.com</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+                                                <h4>{{$user = auth()->user()->name}}</h4>
+                                                <p class="text-muted">{{$user = auth()->user()->email}}</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
                                             </div>
                                         </div>
                                     </li>
@@ -116,12 +118,18 @@
                 <div class="sidebar-content">
                     <div class="user">
                         <div class="avatar-sm float-left mr-2">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+
+                            {{-- 
+                            
                             <img src="../assets/img/profile.jpg" alt="..." class="avatar-img rounded-circle">
+
+                             --}}
                         </div>
                         <div class="info">
                             <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
                                 <span>
-                                    Hizrian
+                                    {{$user = auth()->user()->name}}
                                     {{--The next line show the user's name conected--}}
                                     {{-- <span class="user-level">{{$user = auth()->user()->name}}</span>--}}
                                 <span class="caret"></span>
@@ -155,7 +163,7 @@
                         <li class="nav-item active">
                             <a class="text-align-center" href="" >
                                 <i class="fas fa-home"></i>
-                            <p class="ProcesoAnalitico">Proceso Analitico <br> Organizacional</p>
+                            <p class="ProcesoAnalitico">Plan Operativo Anual</p>
                             </a>
                        
                         </li>
@@ -171,55 +179,13 @@
                         {{-- @role('S_Admin|viewer') --}}
                                                   
                     <li class="nav-item ">
-                        <a href="/debilidades">
-                            <i class="fas fa-minus-circle"></i>
-                            <p>Debilidades</p>
+                        <a href="/proyecto">
+                            <i class="fas fa-graduation-cap"></i>
+                            <p>Proyecto</p>
                             <span class="caret"></span>
                         </a>
 
                     </li>
-
-             
-                    <li class="nav-item">
-                        <a href="/oportunidades">
-                            <i class="fas fa-magic"></i>
-                            <p>Oportunidades</p>
-                            <span class="caret"></span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="/fortaleza">
-                            <i class="fas fa-dumbbell"></i>
-                            <p>Fortalezas</p>
-                            <span class="caret"></span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="/amenazas">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <p>Amenazas</p>
-                            <span class="caret"></span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#sidebarLayouts">
-                            <i class="fas fa-envelope"></i>
-                            <p>Bandeja de entrada</p>
-                            <span class="caret"></span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="/matrizdafo">
-                            <i class="far fa-chart-bar"></i>
-                            <p>MatrizDAFO</p>
-                            <span class="caret"></span>
-                        </a>
-                    </li>
-
 
                         {{-- @endrole --}}
 
@@ -283,7 +249,19 @@
     <script src="{{asset('js/validation.js')}}"></script>   
     <script src="{{asset('js/Jp.js')}}"></script>   
 
+<script>
+       
+    $(window).on("load", function(){
 
+        $(".loader-center").fadeOut("slow");
+        $(".displaynone").fadeIn("slow", function() {
+            $(this).removeClass("displaynone");
+        });
+
+
+    })
+
+</script>
 </body>
 
 </html>

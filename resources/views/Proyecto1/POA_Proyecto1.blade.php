@@ -17,7 +17,7 @@
             <div class="barra">
             <h1 id="" class="IdentificadorIndex">Formación de estudiantes en Pregrado y Postgrado o estudios avanzados</h1>    
             
-                <a href="#" > <i class="fas fa-file-excel"></i> </i> Generar Excel  </a>
+                <a href="/reporte_xlsx" > <i class="fas fa-file-excel"></i> </i> Generar Excel  </a>
             
             
             </div>

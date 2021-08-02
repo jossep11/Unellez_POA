@@ -8,7 +8,7 @@
                 <i class="fas fa-pen-square"></i>
             </div>
             <div class="span-title">
-                Datos de los Responsables del Proyecto
+                Objetivo General y Datos de los Responsables del Proyecto
             </div>
             <div class="span-mode"></div>
         </div>
@@ -126,7 +126,7 @@
                     
                                     <div class="form-group col-md-6">
                                         <label>Número Teléfonico</label>
-                                        <input type="text" class="form-control" name="Numerotlf_Responsable" placeholder="Ej: 04145224549" maxlength="11" minlength="11" required>
+                                        <input type="text" class="form-control" name="Numerotlf_Responsable" placeholder="Ej: 04145224549" maxlength="11" minlength="11" pattern="\d*" title="Campo Numérico" required>
                                     </div>
 
                                     <div class="form-group col-md-6">
@@ -268,7 +268,7 @@
                 
                                 <div class="form-group col-md-6">
                                     <label>Número Teléfonico</label>
-                                    <input type="text" class="form-control" name="Numerotlf_Responsable" placeholder="Ej: 04145224549" maxlength="11" minlength="11" required value="{{$Responsable->Telefono}}">
+                                    <input type="text" class="form-control" name="Numerotlf_Responsable" placeholder="Ej: 04145224549" maxlength="11" minlength="11" required pattern="\d*" title="Campo Numérico" value="{{$Responsable->Telefono}}">
                                 </div>
 
                                 <div class="form-group col-md-6">

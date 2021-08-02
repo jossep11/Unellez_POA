@@ -27,7 +27,9 @@ Route::resource('ResumenMatriculaPreGrado', ResumenM_I_P_EPreGrado_InstitutoCont
 Route::resource('ObjetivoGeneral', ObjetivoGeneralProyecto::class);
 
 Route::resource('poa', login_poa::class)->middleware('guest');
+Route::post('poa1', 'App\Http\Controllers\login_poa@prueba')->name('logout');
 
+Route::get('/reporte_xlsx', [Proyecto1Controller::class, 'export'])->name('export.x');
 
 Route::get('/', function () {
     return view('welcome');

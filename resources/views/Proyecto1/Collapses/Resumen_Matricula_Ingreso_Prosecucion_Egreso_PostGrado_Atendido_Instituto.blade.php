@@ -88,7 +88,8 @@
                       
                         <tr>
                             
-                            <th>Nombre de la Carrera</th>
+                            <th>Nombre de la Postgrado</th>
+                            <th>Tipo de Postgrado</th>
                             <th>Cantidad N. Ingresos</th>
                             <th>Cantidad Prosecución</th>
                             <th>Cantidad Egresados</th>
@@ -105,6 +106,7 @@
                         @foreach($RMIngresoPostgrado as $item1P)
                         <tr>
                             <td>{{$item1P->Nombre_PostGrado}}</td>
+                            <td>{{$item1P->TipoPostgrado}}</td>
                             <td>{{$item1P->N_IngresosP}}</td>
                             <td>{{$item1P->C_ProsecucionP}}</td>
                             <td>{{$item1P->C_EgresadosP}}</td>

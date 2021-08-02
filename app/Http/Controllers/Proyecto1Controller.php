@@ -7,6 +7,8 @@ use App\Models\ObjetivoGeneralProyecto;
 use App\Models\ResumenMatriculaIngresoPostGrado;
 use App\Models\ResumenMatriculaIngresoPreGrado;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\UsersExport;
 
 class Proyecto1Controller extends Controller
 {
@@ -91,5 +93,10 @@ class Proyecto1Controller extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function export()  
+    {
+        return Excel::download(new UsersExport, 'POA.xlsx');
     }
 }

@@ -46,7 +46,8 @@
             <div class="logo-header" data-background-color="blue">
 
                 <a href="/proyecto"class="logo poa">
-                    POA
+                    <img src="{{asset('logo1.png')}}" alt="logo" class="navbar-brand">
+                    Conopaima
                     {{-- 
                     <img src="{{asset('img/logo.svg')}}" alt="navbar brand" class="navbar-brand">
                      --}}
@@ -89,20 +90,22 @@
                                              --}}<i class="fa fa-user" ></i>
 
                                             <div class="u-text">
-                                                <h4>{{$user = auth()->user()->name}}</h4>
-                                                <p class="text-muted">{{$user = auth()->user()->email}}</p><a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+                                                <h4>{{$user = auth()->user()->name}} {{$apellido = auth()->user()->Apellidos}}</h4>
+                                                <p class="text-muted">{{$user = auth()->user()->email}}</p>
+                                                {{-- 
+                                                <a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+                                                comment --}}
                                             </div>
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">My Profile</a>
-                                        <a class="dropdown-item" href="#">My Balance</a>
-                                        <a class="dropdown-item" href="#">Inbox</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Account Setting</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Logout</a>
+                                        <form  action="{{route("logout")}}" method="post">
+                                        
+                                           @csrf
+                                       
+                                      
+                                        <a class="dropdown-item" href="#" onclick="this.closest('form').submit()">Cerrar sesión</a>
+                                    </form>
                                     </li>
                                 </div>
                             </ul>
@@ -130,32 +133,21 @@
                             <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
                                 <span>
                                     {{$user = auth()->user()->name}}
+                                    <br>
+                                    @role('admin')
+                                    Admin
+                                    @else
+                                    User
+                                    @endrole
+                                    
                                     {{--The next line show the user's name conected--}}
                                     {{-- <span class="user-level">{{$user = auth()->user()->name}}</span>--}}
                                 <span class="caret"></span>
                                 </span>
                             </a>
-                            <div class="clearfix"></div>
+                           
 
-                            <div class="collapse in" id="collapseExample">
-                                <ul class="nav">
-                                    <li>
-                                        <a href="#profile">
-                                            <span class="link-collapse">My Profile</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#edit">
-                                            <span class="link-collapse">Edit Profile</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#settings">
-                                            <span class="link-collapse">Settings</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
+                         
                         </div>
                     </div>
 

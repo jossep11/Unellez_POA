@@ -7,6 +7,13 @@ use Illuminate\Support\Facades\Auth;
 
 class login_poa extends Controller
 {
+
+    public function prueba(Request $request){
+     Auth::logout();
+     $request->session()->invalidate();
+     $request->session()->regenerateToken();
+    return redirect('/poa');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -91,4 +98,8 @@ $credencial = request()->only('name','password');
     {
         //
     }
+
+
+
+
 }

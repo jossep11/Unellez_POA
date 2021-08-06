@@ -13,23 +13,6 @@ use Maatwebsite\Excel\Concerns\WithDrawings;
 use PhpOffice\PhpSpreadsheet\Worksheet\Drawing;
 
 
-class InvoicesExport implements WithDrawings
-{
-    public function drawings()
-    {
-        $drawing = new Drawing();
-        $drawing->setName('Logo');
-        $drawing->setDescription('This is my logo');
-        $drawing->setPath(public_path('/logounellez.jpg'));
-        $drawing->setHeight(90);
-        $drawing->setCoordinates('B3');
-
-        return $drawing;
-    }
-}
-
-
-
 class UsersExport implements FromView
 {
     /**

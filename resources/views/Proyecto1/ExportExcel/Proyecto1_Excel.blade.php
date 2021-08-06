@@ -4,7 +4,7 @@
         <th><img src="{{ public_path().'/logounellez.jpg' }}" /></th>
         <th  colspan="4" style="text-align: center">
     <strong>
-        Pla Operativo Anual
+        Plan Operativo Anual
     </strong>
         </th>
         <th>
@@ -15,6 +15,7 @@
      
     </tr>
     </thead>
+    
     <tbody>
         <tr>
            
@@ -24,6 +25,7 @@
         </tr>
 
 {{-- comment --}}
+
 <tr>
 <th colspan="2">
   <strong>  Objetivo General</strong>
@@ -70,7 +72,7 @@
     <td colspan="2">{{$DatoResponsable->DocumentoIdentidad}}-{{$DatoResponsable->Cedula_Pasaporte}}</td>
     <td colspan="2">{{$DatoResponsable->Cargo}}</td>
     <td colspan="2">{{$DatoResponsable->Correo}}</td>
-    <td colspan="2">{{$DatoResponsable->Telefono}}</td>
+    <td colspan="2" style="text-align: center">{{$DatoResponsable->Telefono}}</td>
 </tr>
     @endforeach
     {{-- comment --}}

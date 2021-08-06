@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="{{asset ('css/styles.css') }}">
    
 
-    <title>Test1 </title>
+    <title>POA </title>
 </head>
 
 <body>
@@ -47,7 +47,7 @@
 
                 <a href="/proyecto"class="logo poa">
                     <img src="{{asset('logo1.png')}}" alt="logo" class="navbar-brand">
-                    Conopaima
+                    CONOPAIMA
                     {{-- 
                     <img src="{{asset('img/logo.svg')}}" alt="navbar brand" class="navbar-brand">
                      --}}
@@ -90,7 +90,7 @@
                                              --}}<i class="fa fa-user" ></i>
 
                                             <div class="u-text">
-                                                <h4>{{$user = auth()->user()->name}} {{$apellido = auth()->user()->Apellidos}}</h4>
+                                                <h4>{{$user = auth()->user()->Nombres}}</h4>
                                                 <p class="text-muted">{{$user = auth()->user()->email}}</p>
                                                 {{-- 
                                                 <a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
@@ -132,12 +132,12 @@
                         <div class="info">
                             <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
                                 <span>
-                                    {{$user = auth()->user()->name}}
+                                    {{$user = auth()->user()->Nombres}}
                                     <br>
                                     @role('admin')
-                                    Admin
+                                    Administrador
                                     @else
-                                    User
+                                    Usuario
                                     @endrole
                                     
                                     {{--The next line show the user's name conected--}}

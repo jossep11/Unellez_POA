@@ -20,7 +20,7 @@
         <div class="contenedor__todo">
             <div class="caja__trasera">
                 <div class="caja__trasera-register">
-                    <h2>Proceso Analítico Organizacional</h2>
+                    <h2>Plan Operativo Anual</h2>
                 </div>
             </div>
 

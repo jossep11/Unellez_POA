@@ -21,16 +21,18 @@ class RoleSeeder extends Seeder
         $agregar_eliminar = Permission::create(['name'=>'agregar eliminar'])->assignRole($user1);
         
         $user1_admin = User::create([
-            'name'=> 'Jossep',
-            'email'=> 'Jp@gmail.com',
-            'password'=> bcrypt('1234567'),
+            'name'=> 'admin',
+            'email'=> 'Admin1@gmail.com',
+            'Nombres'=> 'Jhonathan Graterol',
+            'password'=> bcrypt('110220'),
 
         ]);
 
         $user2_user = User::create([
-            'name'=> 'Jose',
-            'email'=> 'Jose@gmail.com',
-            'password'=> bcrypt('1234567'),
+            'name'=> 'proyecto',
+            'email'=> 'proyecto@gmail.com',
+            'Nombres'=> 'Proyecto',
+            'password'=> bcrypt('110220'),
 
         ]);
         $user1_admin->assignRole($admin1);

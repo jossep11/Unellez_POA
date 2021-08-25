@@ -32,7 +32,7 @@
                         @csrf
                     <h2>Iniciar Sesión</h2>
                     <input type="text" name="name" placeholder="Usuario">
-                    <input type="password" name="password" placeholder="Contraseña">
+                    <input type="password" name="password" placeholder="Contraseña" autocomplete="on">
                     <button type="submit">Entrar</button>
                 </form>
     </main>

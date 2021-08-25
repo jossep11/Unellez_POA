@@ -32,5 +32,5 @@ Route::post('poa1', 'App\Http\Controllers\login_poa@prueba')->name('logout');
 Route::get('/reporte_xlsx', [Proyecto1Controller::class, 'export'])->name('export.x');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login.Login_Poa');
 });

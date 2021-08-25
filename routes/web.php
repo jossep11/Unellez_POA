@@ -20,13 +20,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('proyecto', Proyecto1Controller::class)->middleware('auth');
+Route::resource('proyecto', Proyecto1Controller::class);
 Route::resource('ResponsablePro', Datos_Responsables_UserController::class);
 Route::resource('ResumenMatriculaPostGrado', ResumenM_I_P_EPostGrado_InstitutoController::class);
 Route::resource('ResumenMatriculaPreGrado', ResumenM_I_P_EPreGrado_InstitutoController::class);
 Route::resource('ObjetivoGeneral', ObjetivoGeneralProyecto::class);
 
-Route::resource('poa', login_poa::class)->middleware('guest');
+Route::resource('poa', login_poa::class);
 Route::post('poa1', 'App\Http\Controllers\login_poa@prueba')->name('logout');
 
 Route::get('/reporte_xlsx', [Proyecto1Controller::class, 'export'])->name('export.x');

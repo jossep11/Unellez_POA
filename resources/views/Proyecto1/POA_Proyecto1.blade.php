@@ -1,4 +1,4 @@
-@extends('PoaLayout')
+@extends('POALayout')
 
 @section('css')
 
